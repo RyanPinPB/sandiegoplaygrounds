@@ -19,6 +19,8 @@ export const links: LinksFunction = () => {
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "San Diego Playgrounds",
+  description:
+    "Find and filter San Diego playgrounds by location and other criteria. View pictures, videos and review a playground before getting directions.",
   viewport: "width=device-width,initial-scale=1",
 });
 

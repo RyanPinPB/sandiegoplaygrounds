@@ -7,6 +7,7 @@ export default function Index() {
   const headerLinkStyles = {
     fontSize: "clamp(2rem,11vw,7rem)",
     lineHeight: "1.1",
+    maxWidth: "1000px",
   };
 
   return (

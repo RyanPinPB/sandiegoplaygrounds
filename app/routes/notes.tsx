@@ -19,11 +19,15 @@ export default function NotesPage() {
   const data = useLoaderData() as LoaderData;
   const user = useUser();
 
+  const headerLinkStyles = {
+    fontSize: "clamp(1rem,4vw,2rem)",
+  };
+
   return (
     <div className="flex h-full min-h-screen flex-col">
       <header className="flex items-center justify-between bg-slate-800 p-4 text-white">
-        <h1 className="text-3xl font-bold">
-          <Link to=".">Notes</Link>
+        <h1 className="font-bold" style={headerLinkStyles}>
+          <Link to=".">Playgrounds</Link>
         </h1>
         <p>{user.email}</p>
         <Form action="/logout" method="post">
@@ -36,16 +40,16 @@ export default function NotesPage() {
         </Form>
       </header>
 
-      <main className="flex h-full bg-white">
-        <div className="h-full w-80 border-r bg-gray-50">
+      <main className="flex h-full flex-col bg-white md:flex-row">
+        <div className="max-h-96 overflow-scroll border-r bg-gray-50 md:h-full md:min-h-full md:w-80">
           <Link to="new" className="block p-4 text-xl text-blue-500">
-            + New Note
+            + New Playground
           </Link>
 
           <hr />
 
           {data.noteListItems.length === 0 ? (
-            <p className="p-4">No notes yet</p>
+            <p className="p-4">No playgrounds yet</p>
           ) : (
             <ol>
               {data.noteListItems.map((note) => (
@@ -56,7 +60,7 @@ export default function NotesPage() {
                     }
                     to={note.id}
                   >
-                    📝 {note.title}
+                    🛝 {note.title}
                   </NavLink>
                 </li>
               ))}
